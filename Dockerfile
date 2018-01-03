@@ -52,7 +52,7 @@ RUN apt-get install -y software-properties-common && \
     add-apt-repository ppa:git-core/ppa && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
     apt-get install -y --allow-unauthenticated git-lfs && \
-    git lfs install
+    git lfs install --skip-smudge
 
 # Install Landscape
 WORKDIR ${GOPATH}
