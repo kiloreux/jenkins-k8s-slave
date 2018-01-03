@@ -11,6 +11,7 @@ ENV GOROOT /usr/lib/go
 ENV GOPATH /gopath
 ENV GOBIN /gopath/bin
 ENV PATH ${PATH}:${GOROOT}/bin:${GOPATH}/bin
+ENV DEBIAN_FRONTEND noninteractive
 
 USER root
 
@@ -47,10 +48,10 @@ RUN mkdir -p ${GOBIN} && \
     curl https://glide.sh/get | sh
 
 # Install Git LFS
-RUN apt-get install software-properties-common && \
+RUN apt-get install -y software-properties-common && \
     add-apt-repository ppa:git-core/ppa && \
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
-    apt-get install git-lfs && \
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+    apt-get install -y --allow-unauthenticated git-lfs && \
     git lfs install
 
 # Install Landscape
