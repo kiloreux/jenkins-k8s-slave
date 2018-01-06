@@ -1,5 +1,4 @@
 # Mostly built from Guigo2k <guigo2k@guigo2k.com> Image
-
 FROM jenkinsci/jnlp-slave
 
 ENV COMPOSE_VERSION 1.16.0
@@ -12,6 +11,7 @@ ENV GOPATH /gopath
 ENV GOBIN /gopath/bin
 ENV PATH ${PATH}:${GOROOT}/bin:${GOPATH}/bin
 ENV DEBIAN_FRONTEND noninteractive
+ENV GIT_LFS_SKIP_SMUDGE 1
 
 USER root
 
@@ -46,18 +46,12 @@ RUN wget http://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linu
 RUN mkdir -p ${GOBIN} && \
     mkdir /tmp && \
     curl https://glide.sh/get | sh
-
-# Install Git LFS
+    
 RUN apt-get install -y software-properties-common && \
     add-apt-repository ppa:git-core/ppa && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    apt-get install -y --allow-unauthenticated git-lfs && \
-    git lfs install --skip-smudge
+    apt-get install -y --allow-unauthenticated git-lfs
 
-# Install Landscape
-WORKDIR ${GOPATH}
-RUN  mkdir -p src/github.com/eneco/
-WORKDIR ${GOPATH}/src/github.com/eneco/
-RUN git clone https://github.com/Eneco/landscaper.git
-WORKDIR ${GOPATH}/src/github.com/eneco/landscaper
-RUN make bootstrap build
+# Install npm
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y --allow-unauthenticated nodejs
