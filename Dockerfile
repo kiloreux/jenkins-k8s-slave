@@ -1,7 +1,7 @@
 # Mostly built from Guigo2k <guigo2k@guigo2k.com> Image
 FROM jenkinsci/jnlp-slave
 
-ENV COMPOSE_VERSION 1.16.0
+ENV COMPOSE_VERSION 1.19.0-rc2
 ENV HELM_VERSION v2.1.3
 
 ENV CLOUDSDK_CORE_DISABLE_PROMPTS 1
@@ -55,3 +55,4 @@ RUN apt-get install -y software-properties-common && \
 # Install npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y --allow-unauthenticated nodejs
+
