@@ -1,7 +1,7 @@
 # Mostly built from Guigo2k <guigo2k@guigo2k.com> Image
 FROM jenkinsci/jnlp-slave
 
-ENV COMPOSE_VERSION 1.19.0-rc2
+ENV COMPOSE_VERSION 1.20.0
 ENV HELM_VERSION v2.1.3
 
 ENV CLOUDSDK_CORE_DISABLE_PROMPTS 1
