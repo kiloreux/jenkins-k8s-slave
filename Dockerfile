@@ -53,7 +53,7 @@ RUN apt-get install -y software-properties-common && \
     apt-get install -y --allow-unauthenticated git-lfs
 
 # Install npm
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y --allow-unauthenticated nodejs
 
 # Install yarn
