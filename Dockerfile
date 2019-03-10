@@ -69,7 +69,7 @@ RUN apt-get install -y software-properties-common && \
 
 # Install npm
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get install -y --allow-unauthenticated nodejs
+RUN apt-get install -y --allow-unauthenticated nodejs npm
 
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
