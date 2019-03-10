@@ -1,8 +1,8 @@
 # Mostly built from Guigo2k <guigo2k@guigo2k.com> Image
-FROM jenkinsci/jnlp-slave
+FROM jenkinsci/jnlp-slave:3.23-1
 
-ENV COMPOSE_VERSION 1.20.0
-ENV HELM_VERSION v2.8.2
+ENV COMPOSE_VERSION 1.23.2
+ENV HELM_VERSION v2.13.0
 
 ENV CLOUDSDK_CORE_DISABLE_PROMPTS 1
 ENV PATH /opt/google-cloud-sdk/bin:${PATH}
